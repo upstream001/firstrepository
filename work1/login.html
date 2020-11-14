@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .body {
+            background-color: #FAFAFA;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid #ECECEC;
+            background-color: #FFFFFF;
+            width: 300px;
+            height: 400px;
+            margin-top: 100px;
+            border-radius: 5px;
+        }
+
+        .characterlogin {
+            font-size: medium;
+            font-weight: 600;
+        }
+
+        .smallbox1 {
+            width: 200px;
+            height: 24px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            outline-style: none;
+            margin-top: 20px;
+        }
+
+        .smallbox2 {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            width: 200px;
+            height: 30px;
+            background-color: #1D90FF;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #FFFFFF;
+            margin-top: 20px;
+        }
+        .form{
+           margin-left: 50px;
+        }
+    </style>
+</head>
+
+<body class="body">
+    <div class="box">
+        <img src="images/屏幕截图 2020-11-14 131728.png" alt="">
+        <p class="characterlogin">登录</p>
+        <form action="#" class="form">
+        <input type="text" name="username" id="username" class="smallbox1" placeholder="请输入学号">
+        <input type="password" name="psaaword" id="password" class="smallbox1" placeholder="请输入密码">
+        <input type="submit" class="smallbox2" value="login"></input>
+        </form>
+</div>
+</body>
+<script>
+    function getusername(){
+        var username=document.getElementById("username").value
+    }
+    function getpassword(){
+        var password=document.getElementById("password").value
+    }
+    window.onload=function(){
+        document.getElementById("form").onsubmit=function(){
+            var xml=new XMLHttpRequest();
+            xml.open("Post",os.ncuos.com/api/user/token,ture);
+            xml.send(username&password);
+            var rep=xml.responseText;
+            alert(rep);
+        }
+    }
+</script>
+
+</html>
